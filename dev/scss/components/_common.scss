@@ -1,0 +1,265 @@
+html {
+    font-size: 1px;
+}
+
+body {
+    font-size: $fz-01;
+    font-family: $ff-base;
+    color: $c-01;
+    line-height: 1.6;
+}
+
+.inner {
+    max-width: $w-content;
+    box-sizing: content-box;
+    margin: 0 auto;
+    padding: 0 32px;
+
+    &--narrow {
+        max-width: 724px;
+    }
+}
+
+//wave
+.waves__wrap {
+    margin-bottom: -1px;
+}
+
+.waves {
+    position:relative;
+    width: 100%;
+    height:15vh;
+    margin-bottom:-7px; /*Fix for safari gap*/
+    min-height:100px;
+    max-height:150px;
+
+    [class^="wave"] {
+        &:nth-child(1) {
+            animation: move-forever 15s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+
+        &:nth-child(2) {
+            animation: move-forever 11s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+        
+        &:nth-child(3) {
+            animation: move-forever 8s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+        
+        &:nth-child(4) {
+            animation: move-forever 5s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+    }
+}
+
+.wave-01 {
+    fill:  $wave-01;
+}
+
+.wave-02 {
+    fill:  $wave-02;
+}
+
+.wave-03 {
+    fill:  $wave-03;
+}
+
+.wave-04 {
+    fill:  $wave-04;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px,0,0);
+    }
+    100% { 
+        transform: translate3d(85px,0,0);
+    }
+}
+@include mq(sm){
+    .waves {
+        height:40px;
+        min-height:40px;
+    }
+}
+
+
+//m-btn-01 
+.m-btn-01 {
+    &__link {
+        display: block;
+        width: fit-content;
+        font-size: $fz-03;
+        color: $c-03;
+        line-height: 1;
+        padding: 18px 80px;
+        border-radius: 50rem;
+        border: 1px solid $c-02;
+        background-color: $c-02;
+        text-decoration: none;
+        transition: background-color .2s, color .2s, border-color .2s;
+        margin: 0 auto;
+
+        &:hover{
+            background-color: $c-03;
+            color: $c-02;
+        }
+    }
+
+    &--white-01 {
+        .m-btn-01__link {
+            border-color: $c-03;
+            background-color: $c-03;
+            color: $c-02;
+
+            &:hover{
+                background-color: $c-02;
+                border-color: $c-02;
+                color: $c-03;
+            }
+        }
+    }
+
+    &--white-02 {
+        .m-btn-01__link {
+            border-color: $c-02;
+            background-color: $c-03;
+            color: $c-02;
+
+            &:hover{
+                border-color: $c-02;
+                color: $c-03;
+            }
+        }
+    }
+
+    &--left {
+        .m-btn-01__link {
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+
+    &--right {
+        .m-btn-01__link {
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+}
+
+.m-title-01 {
+    &__sub {
+        font-size: $fz-03;
+        font-weight: bold;
+    }
+    
+    &__main {
+        font-weight: bold;
+        font-size: $fz-02;
+        margin-top: 8px;
+    }
+}
+
+.m-title-02 {
+    position: relative;
+
+    &__main {
+        font-size: $fz-04;
+        font-weight: bold;
+        padding-bottom: 16px;
+    }
+
+    &::after{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: $c-02;
+        left: 0;
+        bottom: 0;
+    }
+
+    &__tags {
+        display: flex;
+        margin-bottom: 2px;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    &__item {
+        line-height: 1;
+        padding: 9px 14px;
+        border: 1.5px solid $c-02;
+    }
+}
+
+.m-title-03 {
+    &__main {
+        text-align: center;
+        font-size: $fz-02;
+        font-weight: bold;
+    }
+}
+.m-txt {
+    margin-top: 16px;
+
+    &--tac {
+        text-align: center;
+    }
+
+    &--large {
+        font-size: $fz-03;
+    }
+}
+
+//m-media-lyt 
+.m-media-lyt {
+    $this: &;
+
+    &__wrap {
+        display: flex;
+        // align-items: center;
+        gap: 4%;
+    }
+
+    &__item {
+        width: 50%;
+    }
+
+    &__sub-text {
+        margin-top: 16px;
+        font-size: $fz-06;
+    }
+
+    &--reverse {
+        #{$this}__wrap {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+//m-media
+
+.m-media {
+    text-align: center;
+
+    img {
+        width: 100%;
+    }
+
+    &+&__caption {
+        margin-top: 4px;
+        text-align: center;
+    }
+}
+
+.m-lyt {
+    display: flex;
+    gap: 28px;
+    margin-top: 48px;
+
+    &__content {
+        text-align: center;
+    }
+}

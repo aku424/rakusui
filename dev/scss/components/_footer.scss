@@ -1,0 +1,18 @@
+.footer {
+    background-color: $bg-01;
+
+    &__nav-wrap {
+        display: flex;
+        padding-bottom: 4px;
+        border-bottom: 1px solid $c-02;
+    }
+
+    &__logo {
+        width: 148px;
+    }
+
+    &__links {
+        width: calc(100% - 148px);
+        padding-left: 42px;
+    }
+}
