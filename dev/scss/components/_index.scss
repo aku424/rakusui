@@ -4,37 +4,74 @@
 ====================================================================*/
 .mv {
     background-image: url(./../../img/mv-01.png);
-    background-size: cover;
-    background-position: center;
+    background-size: auto 100%;
+    background-position: 50%;
     margin-top: -135px;
-    padding-top: 155px;
+    padding-top: 235px;
 
+    @include mq(sm){
+        padding-top: 310px;
+    }
+    
     .inner {
         display: flex;
-        gap: 10%;
+        
+        @include mq(md){
+            flex-direction: column;
+            max-width: 600px;
+            padding-bottom: 80px;
+        }
     }
 
     &__contents {
         color: $c-03;
         width: 45%;
         margin-top: 42px;
-    }
 
+        @include mq(md){
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+    
     &__media {
         width: 55%;
+        
+        @include mq(md){
+            width: 100%;
+            margin-top: 30px;
+        }
     }
 
     &__title {
         font-size: $fz-07;
         font-weight: bold;
+
+        @include mq(xl){
+            font-size: 4.75vw;
+        }
+
+        @include mq(md){
+            text-align: center;
+            font-size: $fz-02;
+        }
     }
 
     &__text-wrap {
         margin-top: 10px;
+
+        @include mq(md){
+            text-align: center;
+            font-size: $fz-06;
+        }
     }
 
     .m-btn-01 {
         margin-top: 32px;
+    }
+
+    .waves__wrap {
+        margin-top: -30px;
     }
 }
 
@@ -44,10 +81,15 @@
 .lead {
     background-color: $bg-01;
     padding-top: 40px;
+    border: 2px solid $bg-01;
     
     &__text {
         text-align: center;
         font-size: $fz-02;
+
+        @include mq(md){
+            font-size: $fz-08;
+        }
     }
 }
 
@@ -59,9 +101,29 @@
     background-color: $bg-01;
     overflow: hidden;
 
+    .inner {
+        @include mq(sm){
+            max-width: 568px;
+        }
+    }
+
+    .m-media-lyt__wrap {
+        @include mq(md){
+            align-items: center;
+        }
+    }
+
     .m-media-lyt__item {
         &:first-child {
             margin-top: 46px;
+            
+            @include mq(sm){
+                margin-top: 16px;
+            }
+        }
+
+        @include mq(md){
+            margin-top: 0;
         }
 
         &:last-child {
@@ -73,10 +135,19 @@
 
     &__text {
         margin-top: 16px;
+
+        @include mq(sm){
+            font-size: $fz-06;
+            text-align: center;
+        }
     }
 
     &__download {
         margin-top: 60px;
+
+        @include mq(sm){
+            margin-top: 30px;
+        }
     }
 
     &__download-wrap {
@@ -84,16 +155,32 @@
         grid-template-columns: repeat(2, minmax(auto,128px)) 105px;
         grid-template-rows: auto 40px;
         gap: 8px 26px;
+        
+        @include mq(sm){
+            grid-template-columns: 27% 23% 50%;
+            grid-template-rows: auto auto;
+            gap: 8px 0;
+        }
     }
 
     &__download-text {
         grid-column: 1/3;
         font-size: $fz-06;
         margin-top: auto;
+
+        @include mq(sm){
+            grid-row: 1/2;
+            grid-column: 2/4;
+            margin-bottom: 24px;
+        }
     }
 
     &__download-btn-wrap {
         display: contents;
+
+        @include mq(sm){
+            
+        }
     }
 
     &__download-btn {
@@ -106,12 +193,29 @@
         &:last-child {
             grid-column: 2/3;
         }
+
+        @include mq(sm){
+            &:first-of-type {
+                grid-column: 1/3;
+                margin-right: 13px;
+            }
+            
+            &:last-of-type {
+                grid-column: 3/4;
+                margin-left: 13px;
+            }
+        }
     }
 
     &__download-icon {
-        // width: 105px;
         grid-column: 3/4;
         grid-row: 1/3;
+        
+        @include mq(sm){
+            grid-column: 1/2;
+            grid-row: 1/2;
+            margin-right: 13px;
+        }
 
         img {
             vertical-align: middle;
@@ -131,14 +235,34 @@
     .m-media-lyt {
         &__wrap {
             gap: 0;
+
+            @include mq(sm){
+                flex-direction: column-reverse;
+            }
         }
 
         &__item {
+
             &:first-child {
                 margin-top: 181px;
+
+                @include mq(md){
+                    margin-top: 0;
+                }
+
+                @include mq(sm){
+                    text-align: center;
+                }
+                
             }
+            
             &:last-child {
                 margin-right: -15%;
+
+                @include mq(md){
+                    display: flex;
+                    align-items: center;
+                }
             }
 
             .m-txt {
@@ -153,6 +277,10 @@ how-to
 .how-to{
     background-color: $bg-01;
 
+    @include mq(sm){
+        padding-top: 100px;
+    }
+
     .inner {
         padding-bottom: 120px;
     }
@@ -161,6 +289,10 @@ how-to
         text-align: center;
         font-size: $fz-03;
         font-weight: bold;
+
+        @include mq(sm){
+            font-size: $fz-03;
+        }
     }
 
     &__movie {
@@ -180,6 +312,7 @@ how-to
         margin-top: 21px;
         
         p {
+            text-align: center;
             font-size: $fz-01;
 
             b {
@@ -195,6 +328,10 @@ how-to
     &__img {
         img {
             max-width: 350px;
+
+            @include mq(sm){
+                max-width: 200px;
+            }
         }
     }
 
@@ -217,6 +354,19 @@ how-to
     .waves__wrap {
         margin-bottom: -1px;
     }
+
+    .m-media-lyt__wrap {
+        @include mq(sm){
+            max-width: 568px;
+        }
+    }
+
+    .m-txt {
+        @include mq(sm){
+            text-align: center;
+            font-size: $fz-08;
+        }
+    }
 }
 
 /*====================================================================
@@ -225,9 +375,15 @@ how-to
 .desc {
     padding-top: 210px;
     color: $c-02;
+    
+    @include mq(sm){
+        padding-top: 100px;
+    }
 
     .inner {
         padding-bottom: 115px;
+
+
     }
 
     &__media {
@@ -235,6 +391,10 @@ how-to
         display: flex;
         gap: 16%;
         justify-content: center;
+
+        @include mq(sm){
+            grid-row: 2/3;
+        }
     }
 
     &__item {
@@ -270,6 +430,10 @@ how-to
             top: 20px;
             left: 20px;
         }
+
+        @include mq(sm){
+            // display: none;
+        }
     } 
 
     .m-media__caption {
@@ -288,6 +452,19 @@ how-to
 
     &__btn {
         margin-top: 24px;
+    }
+
+    .m-media-lyt__item {
+        @include mq(sm){
+            display: grid;
+            grid-template-rows: repeat(6, auto);
+        }
+    }
+
+    .m-txt {
+        @include mq(sm){
+            text-align: center;
+        }
     }
 }
 
@@ -308,6 +485,10 @@ how-to
         max-width: 678px;
         margin: 0 auto;
         margin-top: 28px;
+
+        @include mq(sm){
+            text-align: center;
+        }
     }
 
     .m-media__caption {
@@ -321,6 +502,8 @@ how-to
 }
 
 .footer {
+    $this : &;
+
     background-color: $bg-01;
     padding-bottom: 106px;
 
@@ -329,6 +512,7 @@ how-to
         padding-bottom: 4px;
         border-bottom: 1px solid $c-02;
         align-items: center;
+        
     }
 
     &__logo {
@@ -349,6 +533,10 @@ how-to
         padding-left: 42px;
         display: flex;
         justify-content: space-between;
+
+        @include mq(sm){
+            flex-direction: column;
+        }
     }
 
     &__nav {
@@ -358,6 +546,10 @@ how-to
         align-items: center;
         display: flex;
         gap: 16px;
+
+        @include mq(sm){
+            flex-direction: column;
+        }
     }
 
     &__item {
@@ -392,12 +584,19 @@ how-to
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @include mq(sm){
+            flex-direction: column;
+        }
     }
 
     &__policy {
         display: flex;
         gap: 16px;
 
+        @include mq(sm){
+            flex-direction: column;
+        }
     }
     
     &__policy-item {
@@ -425,7 +624,15 @@ how-to
                 background: $c-01;
                 top: 50%;
                 left: -8px;
+
+                @include mq(sm){
+                    display: none;
+                }
             }
+        }
+
+        @include mq(sm){
+            text-align: center;
         }
     }
 
@@ -435,6 +642,35 @@ how-to
 
     &__copy-text {
         font-weight: bold;
+    }
+
+
+    @include mq(sm){
+        #{$this} {
+            &__nav-wrap {
+                padding-top: 70px;
+                flex-direction: column;
+                border-top: 1px solid $c-02;
+                border-bottom: 0 solid inherit;
+            }
+
+            &__links {
+                padding-left: 0;
+                margin-top: 16px;
+            }
+
+            &__sns {
+                margin-top: 16px;
+            }
+
+            &__info {
+                margin-top: 0;
+            }
+
+            &__copy-text {
+                margin-top: 16px;
+            }
+        }
     }
 
 }

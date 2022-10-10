@@ -2,8 +2,9 @@ $breakpoints: (
 //キー  値
     'xs': 'screen and (max-width: 376px)',
     'sm': 'screen and (max-width: 768px)', //767px以下（スマホ）用の表示
-    'md': 'screen and (max-width: 1025px)', //1024px以上（タブレット・PC）用の表示
-    'xl': 'screen and (min-width: 1026px)'
+    'md': 'screen and (max-width: 900px)', //1024px以上（タブレット・PC）用の表示
+    'mds': 'screen and (min-width: 900px)', 
+    'xl': 'screen and (max-width: 1200px)'
 
 ) !default;
 
@@ -15,14 +16,14 @@ $breakpoints: (
     @content;
     }
 }
-@include mq(md){
+@include mq(mds){
     .is-sp{
-        display: none;
+        display: none !important;
     }
 }
-@include mq(sm){
+@include mq(md){
     .is-pc{
-        display: none;
+        display: none !important;
     }
 }
 
@@ -39,6 +40,7 @@ $wave-04 : #fff;
 
 // bg color
 $bg-01: #EDF1F6;
+$bg-02: #00377E;
 
 // font-size
 $fz-01: 16rem; //22
@@ -48,6 +50,7 @@ $fz-04: 48rem; //72
 $fz-05: 26rem; //40
 $fz-06: 12rem; //16
 $fz-07: 57rem; //86
+$fz-08: 14rem; 
 
 //width
 $w-content: 1130px;
@@ -57,3 +60,15 @@ $w-header: 1260px;
 
 //font-family
 $ff-base: 'Noto Sans JP', sans-serif;
+
+//hum_bar
+%hum_bar {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50em;
+    left: 0;
+    transition: transform .3s, opacity .3s;
+}

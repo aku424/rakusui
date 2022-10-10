@@ -7,6 +7,11 @@ body {
     font-family: $ff-base;
     color: $c-01;
     line-height: 1.6;
+    position: relative;
+
+    @include mq(sm){
+        font-size: $fz-08;
+    }
 }
 
 .inner {
@@ -15,6 +20,10 @@ body {
     margin: 0 auto;
     padding: 0 32px;
 
+    @include mq(md){
+        padding: 0 16px;
+    }
+
     &--narrow {
         max-width: 724px;
     }
@@ -22,7 +31,9 @@ body {
 
 //wave
 .waves__wrap {
-    margin-bottom: -1px;
+    position: relative;
+    margin-bottom: -2px;
+    z-index: 1;
 }
 
 .waves {
@@ -97,8 +108,12 @@ body {
         border: 1px solid $c-02;
         background-color: $c-02;
         text-decoration: none;
-        transition: background-color .2s, color .2s, border-color .2s;
+        transition: background-color .3s, color .3s, border-color .3s;
         margin: 0 auto;
+
+        @include mq(sm){
+            font-size: $fz-08;
+        }
 
         &:hover{
             background-color: $c-03;
@@ -159,6 +174,18 @@ body {
         font-size: $fz-02;
         margin-top: 8px;
     }
+
+    @include mq(sm){
+        text-align: center;
+
+        &__sub {
+            font-size: $fz-08;
+        }
+        
+        &__main {
+            font-size: $fz-03;
+        }
+    }
 }
 
 .m-title-02 {
@@ -168,6 +195,11 @@ body {
         font-size: $fz-04;
         font-weight: bold;
         padding-bottom: 16px;
+
+        @include mq(sm){
+            font-size: $fz-03;
+            text-align: center;
+        }
     }
 
     &::after{
@@ -178,6 +210,10 @@ body {
         background-color: $c-02;
         left: 0;
         bottom: 0;
+
+        @include mq(sm){
+            display: none;
+        }
     }
 
     &__tags {
@@ -199,6 +235,11 @@ body {
         text-align: center;
         font-size: $fz-02;
         font-weight: bold;
+
+        @include mq(sm){
+            font-size: $fz-03;
+            text-align: center;
+        }
     }
 }
 .m-txt {
@@ -219,7 +260,6 @@ body {
 
     &__wrap {
         display: flex;
-        // align-items: center;
         gap: 4%;
     }
 
@@ -230,11 +270,36 @@ body {
     &__sub-text {
         margin-top: 16px;
         font-size: $fz-06;
+
+        @include mq(sm) {
+            text-align: center;
+        }
     }
 
     &--reverse {
         #{$this}__wrap {
             flex-direction: row-reverse;
+        }
+    }
+
+    @include mq(sm){
+        &__wrap {
+            flex-direction: column;
+        }
+    
+        &__item {
+            width: 100%;
+        }
+    
+        &__sub-text {
+            margin-top: 16px;
+            font-size: $fz-06;
+        }
+    
+        &--reverse {
+            #{$this}__wrap {
+                flex-direction: column-reverse;
+            }
         }
     }
 }
@@ -255,11 +320,66 @@ body {
 }
 
 .m-lyt {
+    $this : &;
+
     display: flex;
     gap: 28px;
     margin-top: 48px;
 
     &__content {
         text-align: center;
+    }
+
+    @include mq(sm){
+        flex-direction: column;
+
+        #{$this} {
+            width: 100%;
+            gap: 50px;
+        }
+    }
+}
+
+/*====================================================================
+                    loading
+====================================================================*/
+
+.loading {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $bg-01;
+    animation: fadeout  .2s linear 2s forwards;
+
+    &::after{
+        position: absolute;
+        content: "";
+        width: 100vw;
+        height: 50vh;
+        background-color: $wave-01;
+        left: 0;
+        bottom: 0;
+
+    }
+
+    .waves__wrap {
+        position: absolute;
+        bottom: 50%;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    @keyframes fadeout {
+        0%{
+            height: 100vh;
+        }
+        100%{
+            height: 0;
+        }
     }
 }
