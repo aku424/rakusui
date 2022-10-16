@@ -3,8 +3,9 @@ $breakpoints: (
     'xs': 'screen and (max-width: 376px)',
     'sm': 'screen and (max-width: 768px)', //767px以下（スマホ）用の表示
     'md': 'screen and (max-width: 900px)', //1024px以上（タブレット・PC）用の表示
-    'mds': 'screen and (min-width: 900px)', 
-    'xl': 'screen and (max-width: 1200px)'
+    'mds': 'screen and (min-width: 901px)', 
+    'xl': 'screen and (max-width: 1200px)',
+    'xxl': 'screen and (min-width: 1201px)'
 
 ) !default;
 
@@ -41,6 +42,7 @@ $wave-04 : #fff;
 // bg color
 $bg-01: #EDF1F6;
 $bg-02: #00377E;
+$bg-03: #061029;
 
 // font-size
 $fz-01: 16rem; //22
@@ -51,6 +53,9 @@ $fz-05: 26rem; //40
 $fz-06: 12rem; //16
 $fz-07: 57rem; //86
 $fz-08: 14rem; 
+$fz-09: 72rem; 
+$fz-10: 26rem; 
+$fz-11: 32rem; 
 
 //width
 $w-content: 1130px;

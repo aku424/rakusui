@@ -1,0 +1,133 @@
+/*====================================================================
+                    loading
+====================================================================*/
+
+.loading {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    // height: 100vh;
+    background-image: url(./../../img/mv-03.png);
+    background-size: auto 100%;
+    background-position: 50%;
+    overflow: hidden;
+    animation: fadeout  .5s linear 2.5s forwards;
+
+    @include mq(sm){
+        background-position: 0 0;
+    }
+
+    &__logo-wrap {
+        box-sizing: content-box;
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 20px 35px;
+    }
+
+    &__logo {
+        display: block;
+        width: 170px;
+    }
+
+    &__txt {
+        position: relative;
+        text-align: center;
+        z-index: 10;
+        font-size: $fz-02;
+        color: $wave-04;
+        margin-top: 20%;
+        font-weight: bold;
+    }
+
+    &::after{
+        position: absolute;
+        content: "";
+        width: 100vw;
+        height: 34%;
+        background-color: rgba($wave-01, .7);
+        left: 0;
+        bottom: 0%;
+        animation: bg_close .9s linear 2s forwards;
+        
+        @include mq(md){
+            animation: bg_close .87s linear 2s forwards;
+            height: 42%;
+        }
+
+        @include mq(sm){
+            height: 45%;
+        }
+    }
+
+    .waves__wrap {
+        position: absolute;
+        bottom: 269px;
+        width: 100%;
+        // margin-bottom: -10%;
+        // display: none;
+        // opacity: .7;
+        animation: wave_close .3s linear 2s forwards;
+        
+        @include mq(xl){
+            bottom: 22vw;
+        }
+        
+        @include mq(md){
+            animation: wave_close .44s linear 2s forwards;
+            bottom: 468px;
+        }
+
+        @include mq(sm){
+            bottom: 45%;
+        }
+    }
+
+    .waves {
+        opacity: .7;
+    }
+
+    @keyframes fadeout {
+        0%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+            // height: 0;
+        }
+    }
+
+    @keyframes bg_close {
+        0% {
+            bottom: 0;
+        }
+        100% {
+            bottom: -100%;
+        }
+    }
+
+    @keyframes wave_close {
+        0% {
+            bottom: 269px;
+
+            @include mq(sm){
+                bottom: 22vw;
+            }
+        }
+        100% {
+            bottom: 0%;
+        }
+    }
+
+    @keyframes wave_close02 {
+        0% {
+            opacity: .7;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+}
