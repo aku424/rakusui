@@ -10,12 +10,11 @@
     right: 0;
     bottom: 0;
     width: 100vw;
-    // height: 100vh;
     background-image: url(./../../img/mv-03.png);
     background-size: auto 100%;
     background-position: 50%;
     overflow: hidden;
-    animation: fadeout  .5s linear 2.5s forwards;
+    animation: fadeout  1s linear 4.5s forwards;
 
     @include mq(sm){
         background-position: 0 0;
@@ -29,14 +28,16 @@
     }
 
     &__logo {
+        position: relative;
         display: block;
         width: 170px;
+        z-index: 100;
     }
 
     &__txt {
         position: relative;
         text-align: center;
-        z-index: 10;
+        z-index: 100;
         font-size: $fz-02;
         color: $wave-04;
         margin-top: 20%;
@@ -47,47 +48,56 @@
         position: absolute;
         content: "";
         width: 100vw;
-        height: 34%;
-        background-color: rgba($wave-01, .7);
+        height: 0;
+        // background-color: rgba($wave-01, .7 );
+        background-color: $wave-01;
         left: 0;
-        bottom: 0%;
-        animation: bg_close .9s linear 2s forwards;
+        bottom: 0;
+        animation: bg_rise 5.5s ease-in-out 0s forwards;
         
-        @include mq(md){
-            animation: bg_close .87s linear 2s forwards;
-            height: 42%;
-        }
+        // @include mq(md){
+        //     animation: bg_rise 5.5s ease-in-out 0s forwards;
+        // }
 
-        @include mq(sm){
-            height: 45%;
-        }
+        // @include mq(sm){
+        // }
     }
 
     .waves__wrap {
         position: absolute;
-        bottom: 269px;
+        bottom: 0%;
         width: 100%;
-        // margin-bottom: -10%;
-        // display: none;
-        // opacity: .7;
-        animation: wave_close .3s linear 2s forwards;
+        animation: wave_rise 5.5s ease-in-out 0s forwards;
         
         @include mq(xl){
             bottom: 22vw;
         }
         
         @include mq(md){
-            animation: wave_close .44s linear 2s forwards;
             bottom: 468px;
         }
 
         @include mq(sm){
             bottom: 45%;
         }
+
+        .wave-02 {
+            animation: wave 6s cubic-bezier(.55,.5,.45,.5) -2s infinite;
+        }
+        
+        .wave-04 {
+            animation: wave 9s cubic-bezier(.55,.5,.45,.5) -3s infinite;
+            // animation: wave 4s linear 0s infinite;
+        }
+        
+        .wave-01 {
+            animation: wave 12s cubic-bezier(.55,.5,.45,.5) -4s infinite;
+            // animation: wave 4s linear -1s infinite;
+        }
     }
 
     .waves {
-        opacity: .7;
+        // opacity: .7;
     }
 
     @keyframes fadeout {
@@ -96,38 +106,108 @@
         }
         100%{
             opacity: 0;
-            // height: 0;
         }
     }
 
-    @keyframes bg_close {
+    
+    @keyframes wave {
         0% {
-            bottom: 0;
+            transform: translate3d(-130px,0,0);
         }
+        100% { 
+            transform: translate3d(130px,0,0);
+        }
+    }
+
+    @keyframes bg_rise {
+        37% {
+            height: 43%;
+        }
+
+        38% {
+            height: 43%;
+        }
+
+        40% {
+            height: 42.8%;
+        }
+
+        41% {
+            height: 42.7%;
+        }
+
+        43% {
+            height: 43%;
+        }
+
+        42% {
+            height: 43%;
+        }
+
+        45% {
+            height: 43%;
+        }
+
+        70% {
+            height: 100%;
+        }
+
+        75% {
+            height: 100%;
+        }
+
         100% {
-            bottom: -100%;
+            height: 0%;
         }
     }
 
-    @keyframes wave_close {
+    @keyframes wave_rise {
         0% {
-            bottom: 269px;
+            bottom: 0%;
 
             @include mq(sm){
                 bottom: 22vw;
             }
         }
+
+        37% {
+            bottom: 41%;
+        }
+
+        38% {
+            bottom: 41%;
+        }
+
+        40% {
+            bottom: 40.8%;
+        }
+
+        41% {
+            bottom: 40.7%;
+        }
+
+        43% {
+            bottom: 41%;
+        }
+
+        42% {
+            bottom: 41%;
+        }
+
+        45% {
+            bottom: 41%;
+        }
+
+        70% {
+            bottom: 100%;
+        }
+
+        75% {
+            bottom: 100%;
+        }
+
         100% {
             bottom: 0%;
-        }
-    }
-
-    @keyframes wave_close02 {
-        0% {
-            opacity: .7;
-        }
-        100% {
-            opacity: 0;
         }
     }
 }

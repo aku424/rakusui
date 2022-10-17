@@ -10,7 +10,7 @@ export default class loadingFunc {
         }
 
         this.heightSet();
-        window.setTimeout(this.loadingNone, 3000);
+        window.setTimeout(this.loadingNone, 5500);
     }
 
     heightSet() {
