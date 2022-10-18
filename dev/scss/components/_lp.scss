@@ -7,6 +7,11 @@
         padding-bottom: 15px;
         margin-bottom: 100px;
         position: relative;
+        
+        @include mq(sm){
+            padding-top: 40px;
+            margin-bottom: 30px;
+        }
 
         &__main {
             text-align: center;
@@ -32,35 +37,60 @@
         gap: 5vw;
         margin-left: auto;
 
-        @include mq(md){
+        @include mq(sm){
             flex-direction: column;
+            margin: 0 auto;
+            gap: 16px;
+            width: 100%;
         }
 
         &__content {
             width: 50%;
+
+            @include mq(sm){
+                width: 100%;
+            }
         }
         
         &__title {
             font-size: $fz-02;
             font-weight: bold;
+
+            @include mq(sm){
+                text-align: center;
+                font-size: $fz-03;
+            }
         }
         
         &__media {
             width: 50%;
+
+            @include mq(sm){
+                width: 100%;
+            }
         }
 
         &+& {
             margin-top: 100px;
+
+            @include mq(sm){
+                margin-top: 40px;
+            }
         }
 
         &--reverse {
             flex-direction: row-reverse;
             margin-right: auto;
 
-
-        @include mq(md){
-            flex-direction: column;
+            @include mq(sm){
+                flex-direction: column;
+            }
         }
+    }
+
+    .m-txt {
+        @include mq(sm){
+            text-align: center;
         }
     }
 /*====================================================================
@@ -136,13 +166,12 @@
             position: absolute;
             transform: translate(-50%, -50%);
             left: 50%;
-            bottom: -135px;
-            // max-width: 400px;
+            bottom: -113px;
             width: 100%;
         }
 
         @media screen and (max-width:600px) {
-            width: 250px;
+            width: 193px;
         }
     }
 
@@ -200,16 +229,34 @@
     display: flex;
     flex-direction: row-reverse;
     gap: 60px;
-    margin-top: 100px;
+    // margin-top: 100px;
     padding-bottom: 120px;
+
+    &+& {
+        margin-top: 100px;
+    }
+    
+    @include mq(sm){
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 60px;
+    }
 
     &__contents {
         width: calc(100% - (480 / (1272 - 80) * 100%));
+
+        @include mq(sm){
+            width: 100%;
+        }
     }
 
     &__title {
         font-size: $fz-02;
         font-weight: bold;
+
+        @include mq(sm){
+            font-size: $fz-05;
+        }
     }
 
     &__text {
@@ -234,9 +281,19 @@
     .m-btn-01 {
         margin-top: 40px;
     }
-    
+
+    .m-btn-01__link {
+        @include mq(sm){
+            margin: 0 auto;
+        }
+    }
+
     &__media {
         width: calc(480 / (1272 - 80) * 100%);
+
+        @include mq(sm){
+            width: 100%;
+        }
     }
 }
 
@@ -251,6 +308,9 @@
         &__contentInner {
             padding-top: 30px;
 
+            @include mq(sm){
+                padding-top: 0;
+            }
         }
 
         &__icon {
@@ -264,12 +324,17 @@
                 &__title {
                     margin-top: 30px;
                     font-size: $fz-07;
-                }
 
+                    @include mq(sm){
+                        font-size: $fz-03;
+                    }
+                }
             }
+
             .m-txt__item{
                 b {
                     font-size: $fz-11;
+                    
                 }
             }
         }
