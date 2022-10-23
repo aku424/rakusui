@@ -9,8 +9,7 @@ export default class loadingFunc {
             return
         }
 
-        this.heightSet();
-        window.setTimeout(this.loadingNone, 5500);
+        this.judge();
     }
 
     heightSet() {
@@ -22,5 +21,16 @@ export default class loadingFunc {
     loadingNone() {
         document.querySelector(".loading").remove();
         this.target.remove();
+    }
+
+    judge() {
+        if (sessionStorage.getItem('flg') === null) {
+            sessionStorage.setItem('flg','true');
+            this.heightSet();
+            window.setTimeout(this.loadingNone, 5500);
+
+        } else {
+            this.target.remove();
+        }
     }
 }

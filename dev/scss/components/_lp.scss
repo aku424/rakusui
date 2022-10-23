@@ -97,24 +97,24 @@
                     mv
 ====================================================================*/
 .mv {
-    background-image: url(./../../LP/img/mv-02.png);
+    background-image: url(./../../LP/img/mv-02.webp);
     background-size: auto 100%;
     background-position: 0 0;
     
     @include mq(xl){
-        background-image: url(./../../LP/img/mv-01.png);
+        background-image: url(./../../LP/img/mv-01.webp);
     }
 
     @include mq(md){
         background-size: 110%;
         background-position: 50% 60%;
-        background-image: url(./../../LP/img/mv-04.png);
+        background-image: url(./../../LP/img/mv-04.webp);
     }
 
     @media screen and (max-width:600px) {
         background-size: cover;
         background-position: center;
-        background-image: url(./../../LP/img/mv-03.png);
+        background-image: url(./../../LP/img/mv-03.webp);
     }
 
     &__inner {
